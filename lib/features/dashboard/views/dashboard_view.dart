@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:testapp/app/routes.dart';
 import 'package:testapp/features/dashboard/model/dashboard_card_model.dart';
 import 'package:testapp/features/dashboard/services/dashboard_services.dart';
+import 'package:testapp/features/dashboard/widgets/dashboard_card.dart';
 import 'package:testapp/helpers/confirmation_dialog.dart';
 import 'package:testapp/home.dart';
 import 'package:testapp/injector.dart';
@@ -79,25 +80,69 @@ class _DashboardViewState extends State<DashboardView> {
       body: _isloading? Center(
         child: CircularProgressIndicator(color: Colors.redAccent,),
       ):Column(
+        
         children: [
-          Padding(padding: EdgeInsets.only(left: 20),
+          SizedBox(height: 10,),
+          Padding(padding: EdgeInsets.only(left: 1),
+          
+          
           child: Row(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                padding: EdgeInsets.all(10.0),
-                height: 50,
-                width: size.width * 0.5,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(color: Colors.blue,
-                borderRadius: BorderRadius.circular(15),),
-                child: Text(dashboardCard!.myMissingCheckoutCount.toString(),style: TextStyle(fontSize: 20,color: Colors.redAccent),),
+             DashboardCard(icon: Icon(Icons.home), title: "My Missing CheckOut", count: dashboardCard!.myMissingCheckoutCount.toString(),),
+
+              SizedBox(width: 2,),
+
+              DashboardCard(icon: Icon(Icons.timeline), title: "My Leave Balance", count: dashboardCard!.myLeaveBalance.toString(),),
               
-              ),
-              SizedBox(width: 50,),
-              Text(dashboardCard!.myLeaveBalance.toString(),style: TextStyle(fontSize: 20,color: Colors.redAccent),),
+
+              
+
+              
+
+              
             ],
           ),
-          )
+          ),
+          SizedBox(height: 10,),
+           Padding(padding: EdgeInsets.only(left: 1),
+          
+          
+          child: Row(
+            
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+            children: [
+             DashboardCard(icon: Icon(Icons.settings), title: "My Ghost Count", count: dashboardCard!.myghostCount.toString(),),
+
+              SizedBox(width: 2,),
+
+              DashboardCard(icon: Icon(Icons.mail), title: "My No Updates", count: dashboardCard!.myNoDailyUpdate.toString(),),
+              
+
+              
+
+              
+
+              
+            ],
+          ),
+          ),
+          SizedBox(height: 10,),
+          Padding(padding: EdgeInsets.only(left: 1),
+          
+          
+          child: Row(
+            
+            children: [
+              const SizedBox(width: 12,),
+
+             DashboardCard(icon: Icon(Icons.settings), title: "My Not Acknowledge", count: dashboardCard!.myNotAcknowledged.toString(),),
+  
+            ],
+          ),
+          ),
+
         ],
       )
       
