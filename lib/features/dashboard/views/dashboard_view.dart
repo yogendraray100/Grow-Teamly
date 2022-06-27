@@ -50,27 +50,7 @@ class _DashboardViewState extends State<DashboardView> {
               Navigator.pushNamedAndRemoveUntil(context, AppRoutes.loginRoute, (route) => false);
              
              }
-            //  showDialog(
-            //    barrierDismissible: false,
-            //    context: context, builder: (context){
-            //    return AlertDialog(
-                 
-            //      title: Text("Do you want to log out ?"),
-            //      content: Row(
-            //        mainAxisAlignment: MainAxisAlignment.end,
-            //        children: [
-            //          TextButton(onPressed: (){
-            //            Navigator.pop(context);
-            //          }, child: Text ("No")),
-            //          TextButton(onPressed: (){
-            //            locator.get<SharedPreferences>().clear();
-            //            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
-            //          }, child: Text ("Yes")),
-            //        ],
-            //      ),
-            //    );
-            //  }
-            // );
+           
               
            
           }, 
@@ -83,17 +63,22 @@ class _DashboardViewState extends State<DashboardView> {
         
         children: [
           SizedBox(height: 10,),
-          Padding(padding: EdgeInsets.only(left: 1),
+          Padding(padding: EdgeInsets.only(left: 10),
           
           
-          child: Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Wrap(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            spacing: 10,
+            runSpacing: 10,
             children: [
-             DashboardCard(icon: Icon(Icons.home), title: "My Missing CheckOut", count: dashboardCard!.myMissingCheckoutCount.toString(),),
+             DashboardCard(icon: Icon(Icons.home), title: "My Missing CheckOut", count: dashboardCard!.myMissingCheckoutCount.toString(),containerColor: Colors.green,),
 
-              SizedBox(width: 2,),
 
-              DashboardCard(icon: Icon(Icons.timeline), title: "My Leave Balance", count: dashboardCard!.myLeaveBalance.toString(),),
+              DashboardCard(icon: Icon(Icons.timeline), title: "My Leave Balance", count: dashboardCard!.myLeaveBalance.toString(),containerColor: Colors.red,),
+
+              DashboardCard(icon: Icon(Icons.settings), title: "My Ghost Count", count: dashboardCard!.myghostCount.toString(),containerColor: Colors.pink,),
+              DashboardCard(icon: Icon(Icons.mail), title: "My No Updates", count: dashboardCard!.myNoDailyUpdate.toString(),containerColor: Colors.yellow,),
+              DashboardCard(icon: Icon(Icons.settings), title: "My Not Acknowledge", count: dashboardCard!.myNotAcknowledged.toString(),),
               
 
               
@@ -104,20 +89,20 @@ class _DashboardViewState extends State<DashboardView> {
             ],
           ),
           ),
-          SizedBox(height: 10,),
-           Padding(padding: EdgeInsets.only(left: 1),
+          // SizedBox(height: 10,),
+          //  Padding(padding: EdgeInsets.only(left: 1),
           
           
-          child: Row(
+          // child: Row(
             
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-            children: [
-             DashboardCard(icon: Icon(Icons.settings), title: "My Ghost Count", count: dashboardCard!.myghostCount.toString(),),
+          //   children: [
+          //    DashboardCard(icon: Icon(Icons.settings), title: "My Ghost Count", count: dashboardCard!.myghostCount.toString(),containerColor: Colors.pink,),
 
-              SizedBox(width: 2,),
+          //     SizedBox(width: 2,),
 
-              DashboardCard(icon: Icon(Icons.mail), title: "My No Updates", count: dashboardCard!.myNoDailyUpdate.toString(),),
+          //     DashboardCard(icon: Icon(Icons.mail), title: "My No Updates", count: dashboardCard!.myNoDailyUpdate.toString(),containerColor: Colors.yellow,),
               
 
               
@@ -125,23 +110,23 @@ class _DashboardViewState extends State<DashboardView> {
               
 
               
-            ],
-          ),
-          ),
-          SizedBox(height: 10,),
-          Padding(padding: EdgeInsets.only(left: 1),
+          //   ],
+          // ),
+          // ),
+          // SizedBox(height: 10,),
+          // Padding(padding: EdgeInsets.only(left: 1),
           
           
-          child: Row(
+          // child: Row(
             
-            children: [
-              const SizedBox(width: 12,),
+          //   children: [
+          //     const SizedBox(width: 12,),
 
-             DashboardCard(icon: Icon(Icons.settings), title: "My Not Acknowledge", count: dashboardCard!.myNotAcknowledged.toString(),),
+          //    DashboardCard(icon: Icon(Icons.settings), title: "My Not Acknowledge", count: dashboardCard!.myNotAcknowledged.toString(),),
   
-            ],
-          ),
-          ),
+          //   ],
+          // ),
+          // ),
 
         ],
       )
