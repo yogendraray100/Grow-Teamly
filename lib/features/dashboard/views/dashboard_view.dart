@@ -89,44 +89,7 @@ class _DashboardViewState extends State<DashboardView> {
             ],
           ),
           ),
-          // SizedBox(height: 10,),
-          //  Padding(padding: EdgeInsets.only(left: 1),
           
-          
-          // child: Row(
-            
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-          //   children: [
-          //    DashboardCard(icon: Icon(Icons.settings), title: "My Ghost Count", count: dashboardCard!.myghostCount.toString(),containerColor: Colors.pink,),
-
-          //     SizedBox(width: 2,),
-
-          //     DashboardCard(icon: Icon(Icons.mail), title: "My No Updates", count: dashboardCard!.myNoDailyUpdate.toString(),containerColor: Colors.yellow,),
-              
-
-              
-
-              
-
-              
-          //   ],
-          // ),
-          // ),
-          // SizedBox(height: 10,),
-          // Padding(padding: EdgeInsets.only(left: 1),
-          
-          
-          // child: Row(
-            
-          //   children: [
-          //     const SizedBox(width: 12,),
-
-          //    DashboardCard(icon: Icon(Icons.settings), title: "My Not Acknowledge", count: dashboardCard!.myNotAcknowledged.toString(),),
-  
-          //   ],
-          // ),
-          // ),
 
         ],
       )
