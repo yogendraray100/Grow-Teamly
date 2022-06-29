@@ -3,7 +3,7 @@ class DailuUpdateModel{
   int? userId;
   String? title;
   String? description;
-  String? projectId;
+  int? projectId;
   String? acknowledgedAt;
 
   DailuUpdateModel({this.id,this.userId,this.description,this.projectId,this.title,this.acknowledgedAt});

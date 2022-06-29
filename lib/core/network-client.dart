@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:http/http.dart' as http;
 import 'package:testapp/constants/api_endpoints.dart';
 import 'package:testapp/core/header.dart';
@@ -13,6 +15,7 @@ Future<http.Response?> getRequest({String baseUrl = ApiEndpoints.baseUrl, requir
     print(e.toString());
 
    }
+   log(response != null ? response.statusCode.toString() : "response is null");
    return response;
 
 }
@@ -26,6 +29,8 @@ Future<http.Response?> postRequest({String baseUrl = ApiEndpoints.baseUrl, requi
   }catch(e){
     print(e.toString());
   }
+     log(response != null ? response.statusCode.toString() : "response is null");
+
   return response;
 }  
 
