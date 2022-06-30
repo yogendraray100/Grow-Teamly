@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:testapp/app/routes.dart';
+import 'package:testapp/features/daily_updates/views/add_dailyUpdate.dart';
 import 'package:testapp/home.dart';
 import 'package:testapp/homepage.dart';
 import 'package:testapp/models/dummypage_model.dart';
@@ -13,6 +14,7 @@ class RouteHandler{
     switch(settings.name){
       case AppRoutes.loginRoute : return MaterialPageRoute(builder: (context)=>const LoginPage());
        case AppRoutes.homeRoute : return MaterialPageRoute(builder: (context)=>const HomePage());
+       case AppRoutes.addDailyUpdateRoute : return MaterialPageRoute(builder: (context)=>const AddDailyUpdateView());
        case AppRoutes.dummyRoute : return MaterialPageRoute(builder: (context)=>  DummyPage(
         data : arguments as DummyPageModel,
         

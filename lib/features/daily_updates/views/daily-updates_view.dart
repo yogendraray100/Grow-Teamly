@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:testapp/features/daily_updates/model/dailyupdate_model.dart';
 import 'package:testapp/features/daily_updates/services/dailyupdate_services.dart';
@@ -34,6 +36,11 @@ bool _isloading = true;
         automaticallyImplyLeading : false,
         title: const Text("Daily Updates"),
       ),
+      
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        
+      },
+      child: Icon(Icons.add)),
       body: _isloading ? const CircularProgressIndicator(): ListView.separated(
         separatorBuilder: (BuildContext context,int index) => const Divider() ,
         itemCount: dailyUpdates.length,
@@ -41,10 +48,26 @@ bool _isloading = true;
           return ListTile(
             title: Text(dailyUpdates[index].title ?? ""),
             subtitle: Text(dailyUpdates[index].description ?? ""),
+            trailing : dailyUpdates[index].acknowledgedAt == null ?  Row(
+              mainAxisSize : MainAxisSize.min,
+              children:  [
+                InkWell(
+                  onTap: () {
+                    log("edit  tapped");
+                  },
+                  child: const Icon(Icons.edit)),
+                InkWell(
+                  onTap: () {
+                    log("delete tapped");
+                  },
+                  child:const Icon(Icons.delete)),
+              ]
+            ) : const SizedBox(),
 
           );
         },
       ),
+
     );
   }
 }
