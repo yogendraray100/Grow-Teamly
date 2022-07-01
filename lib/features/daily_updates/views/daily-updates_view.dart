@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:testapp/app/routes.dart';
 import 'package:testapp/features/daily_updates/model/dailyupdate_model.dart';
 import 'package:testapp/features/daily_updates/services/dailyupdate_services.dart';
 
@@ -38,7 +39,7 @@ bool _isloading = true;
       ),
       
       floatingActionButton: FloatingActionButton(onPressed: () {
-        
+      Navigator.pushNamed(context, AppRoutes.addDailyUpdateRoute);
       },
       child: Icon(Icons.add)),
       body: _isloading ? const CircularProgressIndicator(): ListView.separated(
