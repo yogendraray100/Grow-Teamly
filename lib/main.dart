@@ -33,6 +33,7 @@ class TestApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title :"Grow Teamly",
+      navigatorKey: AppSettings.navigatorKey,
       onGenerateRoute: RouteHandler.generateRoute,
       //home : token != null ? HomePage() : LoginPage(),
       initialRoute: token != null ? AppRoutes.homeRoute : AppRoutes.loginRoute,
@@ -40,4 +41,8 @@ class TestApp extends StatelessWidget {
       
     );
   }
+}
+
+class AppSettings{
+  static GlobalKey<NavigatorState>navigatorKey = GlobalKey<NavigatorState>();
 }

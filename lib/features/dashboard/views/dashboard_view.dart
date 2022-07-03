@@ -55,9 +55,9 @@ class _DashboardViewState extends State<DashboardView> {
           icon: Icon(Icons.logout)),
          ],
       ),
-      body: _isloading? Center(
+      body: _isloading?const Center(
         child: CircularProgressIndicator(color: Colors.redAccent,),
-      ):Column(
+      ) :dashboardCard == null ? const Center(child : Text("Something went wrong"),):Column(
         
         children: [
           SizedBox(height: 10,),
