@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:testapp/constants/image_constants.dart';
 import 'package:testapp/features/profile/model/profile_model.dart';
 import 'package:testapp/features/profile/services/profile_services.dart';
+import 'package:testapp/helpers/snacks.dart';
 import 'package:testapp/models/dummypage_model.dart';
 
 import '../../../app/routes.dart';
@@ -68,6 +70,12 @@ bool _isloading = true;
            ElevatedButton(onPressed: (){
             Navigator.pushNamed(context, AppRoutes.dummyRoute, arguments: DummyPageModel(name: "Hello", address: "ktm", age: 20));
            }, child: Text("Navigate")),
+
+           ElevatedButton(onPressed:(){
+            AppSnacks.showErrorToast("Button Clicked", true);
+           },child : const Text("Press")),
+
+          
            
          ],
        ),
