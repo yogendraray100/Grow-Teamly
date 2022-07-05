@@ -57,6 +57,10 @@ bool _isloading = true;
          children: [
            SizedBox(height: 10,),
            ClipOval(child: Image.network(ImageConstants.bcc,fit: BoxFit.fitWidth,height: 80,),),
+           IconButton(onPressed: (){
+            showModalBottomSheet(context: context, builder: (context){return Text("Hahah");});
+           },icon : Icon(Icons.edit)),
+
            SizedBox(height: 10,),
            Text(
              profileModel?.fullName ?? "",style: TextStyle(fontSize : 20,fontWeight: FontWeight.bold),

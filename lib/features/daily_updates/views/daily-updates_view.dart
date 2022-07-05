@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:testapp/app/routes.dart';
 import 'package:testapp/features/daily_updates/model/dailyupdate_model.dart';
 import 'package:testapp/features/daily_updates/services/dailyupdate_services.dart';
+import 'package:testapp/features/daily_updates/widget/list_shimmer.dart';
 
 class DailyUpdatesView extends StatefulWidget {
   const DailyUpdatesView({ Key? key }) : super(key: key);
@@ -42,7 +43,7 @@ bool _isloading = true;
       Navigator.pushNamed(context, AppRoutes.addDailyUpdateRoute);
       },
       child: Icon(Icons.add)),
-      body: _isloading ? const CircularProgressIndicator(): ListView.separated(
+      body: _isloading ? ListShimmer(): ListView.separated(
         separatorBuilder: (BuildContext context,int index) => const Divider() ,
         itemCount: dailyUpdates.length,
         itemBuilder: (BuildContext context, int index){
