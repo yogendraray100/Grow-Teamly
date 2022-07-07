@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,6 +13,7 @@ class AttendanceView extends StatefulWidget {
 }
 
 class _AttendanceViewState extends State<AttendanceView> {
+  XFile? _pickedImage;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +38,11 @@ class _AttendanceViewState extends State<AttendanceView> {
                     ListTile(
                       onTap: () async{
                        //if(kDebugMode) print("camera tapped");
-                       ImagePickerHelper().pickImage(ImageSource.camera);
+                       Navigator.pop(context);
+                      _pickedImage = await ImagePickerHelper().pickImage(ImageSource.camera);
+                      
+                       print(_pickedImage?.path);
+                       setState((){});
 
 
                       },
@@ -44,7 +51,12 @@ class _AttendanceViewState extends State<AttendanceView> {
                     ),
                     ListTile(
                       onTap: ()async{
-                       ImagePickerHelper().pickImage(ImageSource.gallery); 
+                        Navigator.pop(context);
+                        _pickedImage = await ImagePickerHelper().pickImage(ImageSource.gallery);
+                      
+                       print(_pickedImage?.path);
+                       setState((){});
+                      
 
 
                       },
@@ -58,6 +70,22 @@ class _AttendanceViewState extends State<AttendanceView> {
               );
             });
           }, child: const Text("Pick an Image")),
+          if(_pickedImage != null)...{
+           Stack(
+            alignment : Alignment.topRight,
+            children: [
+               Image.file(File(_pickedImage!.path)),
+               IconButton(
+                onPressed : (){
+                  _pickedImage = null;
+                  setState((){});
+
+                },
+                icon:const Icon(Icons.cancel),
+               )
+            ]
+           ),
+          }
 
         ]
       )
